@@ -1,0 +1,4 @@
+In this experiment we are trying to create adjacency graph for entire united states(county level) and add SVI data as node features - create the dataset.
+Feed the daset into basic node classification  DCN
+All this for a single year
+
