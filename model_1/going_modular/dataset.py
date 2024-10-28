@@ -30,7 +30,7 @@ class OpioidDataset(Dataset):
         """ If this file exists in raw directory, the download is not triggered.
             (The download func. is not implemented here)  
         """
-        return ['processed_filtered_df.csv','svi_od_ranked_2018.csv','simplices.pkl']
+        return ['processed_filtered_df_us.csv','svi_od_ranked_2018.csv','simplices_us.pkl']
     #ok
     @property
     def processed_file_names(self):
@@ -38,7 +38,7 @@ class OpioidDataset(Dataset):
         if self.test:
             return [f'data_test.pt']
         else:
-            return [f'data.pt']
+            return [f'data_us.pt']
     #ok
     def download(self):
         pass
@@ -129,7 +129,7 @@ class OpioidDataset(Dataset):
         if self.pre_transform is not None:
             graph = self.pre_transform(graph)
 
-        torch.save(graph, osp.join(self.processed_dir, f'data.pt'))
+        torch.save(graph, osp.join(self.processed_dir, f'data_us.pt'))
 
 
     def _get_labels(self, svi_od_ranked, node_ids):
@@ -152,7 +152,7 @@ class OpioidDataset(Dataset):
                                  f'data_test.pt'))
         else:
             data = torch.load(os.path.join(self.processed_dir, 
-                                 f'data.pt'))        
+                                 f'data_us.pt'))        
         return data
     
 

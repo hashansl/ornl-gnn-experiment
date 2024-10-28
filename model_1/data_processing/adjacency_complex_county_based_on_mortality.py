@@ -155,7 +155,7 @@ if __name__ == "__main__":
     required_columns = required_columns + node_features
 
     #filter by STATE
-    overdose_df = overdose_df[overdose_df['STATE'] == 'TENNESSEE']
+    # overdose_df = overdose_df[overdose_df['STATE'] == 'FLORIDA']
 
     print(f'shape of the dataframe: {overdose_df.shape}')
 
@@ -190,11 +190,11 @@ if __name__ == "__main__":
     print(graph_data['dataframe'].shape)
 
     # save df as csv file
-    graph_data['dataframe'].to_csv(f'{base_path}/processed_filtered_df.csv', index=False)
+    graph_data['dataframe'].to_csv(f'{base_path}/processed_filtered_df_us.csv', index=False)
 
     # save simplices to a numpy file
     # np.save(f'{base_path}/simplices.npy', graph_data['simplices'],allow_pickle=True)
-    with open(f'{base_path}/simplices.pkl', 'wb') as f:
+    with open(f'{base_path}/simplices_us.pkl', 'wb') as f:
         pickle.dump(graph_data['simplices'], f)
 
     
